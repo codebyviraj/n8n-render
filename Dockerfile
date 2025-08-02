@@ -1,16 +1,16 @@
-# Use official n8n image
-FROM n8nio/n8n
-
-# Enable basic auth (change password for security)
-ENV N8N_BASIC_AUTH_ACTIVE=true
-ENV N8N_BASIC_AUTH_USER=admin
-ENV N8N_BASIC_AUTH_PASSWORD=changeme123
+# Use official n8n Docker image
+FROM n8nio/n8n:latest
 
 # Set timezone (optional)
 ENV GENERIC_TIMEZONE=UTC
 
-# Expose n8n default port
+# Enable basic auth
+ENV N8N_BASIC_AUTH_ACTIVE=true
+ENV N8N_BASIC_AUTH_USER=codebyviraj
+ENV N8N_BASIC_AUTH_PASSWORD=virajjaat
+
+# Expose n8n port
 EXPOSE 5678
 
-# Run n8n
+# Start n8n
 CMD ["n8n"]
