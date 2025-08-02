@@ -1,16 +1,14 @@
-# Use official n8n Docker image
-FROM n8nio/n8n:latest
+FROM node:18-alpine
 
-# Set timezone (optional)
+# Install n8n manually
+RUN npm install -g n8n
+
 ENV GENERIC_TIMEZONE=UTC
-
-# Enable basic auth
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=codebyviraj
 ENV N8N_BASIC_AUTH_PASSWORD=virajjaat
+ENV PORT=5678
 
-# Expose n8n port
 EXPOSE 5678
 
-# Start n8n
 CMD ["n8n"]
